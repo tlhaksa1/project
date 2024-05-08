@@ -1,13 +1,14 @@
 # Stata Programming II Project
-## Tenzin Lhaksampa
+Tenzin Lhaksampa
 
-## 1. Survey Data from NHANES
+## HW 6 
+### 1. Survey Data from NHANES
   - import the survey data from the 1999-2000 NANES
   - use the stata command as follows
     
     ```import sasxport5 "https://wwwn.cdc.gov/Nchs/Nhanes/1999-2000/DEMO.XPT", clear```
 
-## 2. Mortality Follow-up Data from NCHS
+### 2. Mortality Follow-up Data from NCHS
   - click this [Link](https://ftp.cdc.gov/pub)
   - click as follows
     - Health Statistics
@@ -15,7 +16,7 @@
         - Datalinkage
           - Linked Mortality - ```Stata_ReadInProgramALlSurveys.do```
 
-## 3. Create followup.do file
+### 3. Create followup.do file
 - use the do file from NCHS
 - edit the absolute file path
 - edit ```SURVEY``` and change it into ```NHANES_1999_2000```
@@ -34,5 +35,7 @@ merge 1:1 seqn using followup
 lookfor follow
 ```
 
-## 5. Prepare for Week 7
+### 5. Prepare for Week 7
 import the specific health questionnaire data
+
+## HW 7 
