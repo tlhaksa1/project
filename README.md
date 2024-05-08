@@ -20,13 +20,8 @@ Tenzin Lhaksampa
 
 ### 2. Mortality Follow-up Data: 
   - Obtain follow-up mortality data to analyze over a 20-year period from the National Center for Health Statistics (NCHS). Detailed linkage instructions are available on the [Linked Mortality](https://ftp.cdc.gov/pub) page:
-  - Click as follows
-    - Health Statistics
-      - NCHS
-        - Datalinkage
-          - Linked Mortality
-            - ```NHANES_1999_2000_MORT_2019_PUBLIC.dat```
-            - ```Stata_ReadInProgramAllSurveys.do```
+      - Download the [Mortality Data](https://ftp.cdc.gov/pub/HEALTH_STATISTICS/NCHS/datalinkage/linked_mortality/NHANES_1999_2000_MORT_2019_PUBLIC.dat)
+      - Download the [Stata.do file](https://ftp.cdc.gov/pub/HEALTH_STATISTICS/NCHS/datalinkage/linked_mortality/Stata_ReadInProgramAllSurveys.do)
 
 ### 3. Edit and Rename Provided Script:
 - Use the ```Stata_ReadInProgramAllSurveys.do``` file from NCHS
