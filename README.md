@@ -39,7 +39,8 @@ May 8, 2024
 
   ```
   //use your own username/project repo instead of the class repo below
-  global repo "https://github.com/jhustata/intermediate/raw/main/"
+  global repo "https://github.com/tlhaksa1/project/raw/main/"
+  cls
   do ${repo}followup.do
   save followup, replace 
   import sasxport5 "https://wwwn.cdc.gov/Nchs/Nhanes/1999-2000/DEMO.XPT", clear
