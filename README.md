@@ -15,7 +15,7 @@
         - Datalinkage
           - Linked Mortality - ```Stata_ReadInProgramALlSurveys.do```
 
-## 3. Create followup.do filw
+## 3. Create followup.do file
 - use the do file from NCHS
 - edit the absolute file path
 - edit ```SURVEY``` and change it into ```NHANES_1999_2000```
