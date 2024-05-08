@@ -1,6 +1,10 @@
 # Stata Programming II Project
-Analysis of Self-Reported Health
+
+**Analysis of Self-Reported Health**
+
 Tenzin Lhaksampa
+
+May 8, 2024
 
 ## Objective: 
 1. Create a Public GitHub Repository:
