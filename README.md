@@ -1,5 +1,16 @@
 # Stata Programming II Project
+Analysis of Self-Reported Health
 Tenzin Lhaksampa
+
+## Objective: 
+1. Create a Public GitHub Repository:
+    - Set up a repository named project on GitHub. You will be working individually, but you are encouraged to use GitHub Discussions to seek help from your peers when needed.
+
+2. Utilize Publicly Available Data:
+    - The focus will be on using public data to explore the significance of “self-reported health” as a health indicator.
+
+3. Documentation and Transparency:
+    - Document your project comprehensively using a README.md file and other necessary documentation to make your analysis accessible and understandable. Embrace the principles of Open Science which are Rigor, Reproducibility, and Responsibility.
 
 ## HW 6 
 ### 1. Survey Data: 
@@ -41,5 +52,36 @@ Tenzin Lhaksampa
 - Prepare for Week 7: Import the specific health questionnaire data 
 
    ```import sasxport5 "https://wwwn.cdc.gov/Nchs/Nhanes/1999-2000/HUQ.XPT", clear```
+
+## 6. Inferences
+Please review [documentation](https://wwwn.cdc.gov/Nchs/Nhanes/1999-2000/HUQ.htm) for the file ```HUQ.XPT```, which includes the variable ```huq010```
+
+**Employ 95%CI and p-values**
+
+The following snippet will lay the foundation for your statistical, clinical, and public health inferences:
+
+```
+merge 1:1 seqn using demo_mortality, nogen
+sts graph, by(huq010) fail
+stcox i.huq010
+```
+**Write a brief abstract-style conclusion**
+
+But learn a little more about the simple questionnaire item of interest to this project:
+
+```
+import sasxport5 "https://wwwn.cdc.gov/Nchs/Nhanes/1999-2000/HUQ.XPT", clear 
+huq010 
+desc huq010
+codebook huq010
+```
+> I have some general questions about your health. Would you say your health in general is:
+>
+>  - Excellent
+>  - Very good
+>  - Good
+>  - Fair
+>  - Poor?
+>
 
 ## HW 7 
