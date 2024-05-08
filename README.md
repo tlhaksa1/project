@@ -8,7 +8,7 @@
     ```import sasxport5 "https://wwwn.cdc.gov/Nchs/Nhanes/1999-2000/DEMO.XPT", clear```
 
 ## 2. Mortality Follow-up Data from NCHS
-  - click this [Link]([https://ftp.cdc.gov/pub]([https://ftp.cdc.gov/pub))
+  - click this [Link](https://ftp.cdc.gov/pub)
   - click as follows
     - Health Statistics
       - NCHS
