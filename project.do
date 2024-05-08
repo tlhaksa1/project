@@ -1,7 +1,9 @@
 // STATA II Project
 // Tenzin Lhaksmapa 
 
+//use your own username/project repo instead of the class repo below
 global repo "https://github.com/jhustata/intermediate/raw/main/"
+cls
 do ${repo}followup.do
 save followup, replace 
 import sasxport5 "https://wwwn.cdc.gov/Nchs/Nhanes/1999-2000/DEMO.XPT", clear
