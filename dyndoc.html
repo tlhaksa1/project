@@ -1,0 +1,126 @@
+<p>// Stata II HW 7 // Tenzin Lhaksampa</p>
+<p>// Clear previous data qui {</p>
+<pre><code>if 0 { //method, log
+	// Clear Previous data
+	clear
+	cls
+	
+	
+	// methods
+	if c(os)==&quot;Windows&quot; { 
+		global workdir &quot;`c(pwd)'\&quot;
+	}
+	else {
+		global workdir &quot;`c(pwd)'/&quot;
+	}
+
+	// Create log file in working directory 
+	log using ${workdir}hw7.lhaksampa.tenzin.log, replace
+} //end 0
+
+if 1 { // 7.2 Non-Parametric KM Curve
+	cls 
+	
+	//7.1. data
+	global repo &quot;https://raw.githubusercontent.com/tlhaksa1/project/main/&quot;
+	global nhanes &quot;https://wwwn.cdc.gov/Nchs/Nhanes/&quot;
+
+	//2. code
+	do ${repo}followup.do
+	save followup, replace 
+	import sasxport5 &quot;${repo}DEMO.XPT&quot;, clear
+	merge 1:1 seqn using followup, nogen
+	save survey_followup, replace 
+
+	//3. parameters 
+	import sasxport5 &quot;${repo}HUQ.XPT&quot;, clear
+	tab huq010 
+	merge 1:1 seqn using survey_followup, nogen keep(matched)
+	rm followup.dta
+	rm survey_followup.dta
+	g years=permth_int/12
+	stset years, fail(mortstat)
+	replace huq010=. if huq010==9
+	label define huq 1 &quot;Excellent&quot; 2 &quot;Very Good&quot; 3 &quot;Good&quot; 4 &quot;Fair&quot; 5 &quot;Poor&quot;
+	label values huq010 huq 
+	levelsof huq010, local(numlevels)
+	local i=1
+	foreach l of numlist `numlevels' {
+		local vallab: value label huq010 
+		local catlab: lab `vallab' `l'
+		global legend`i' = &quot;`catlab'&quot;
+		local i= `i' + 1
+	}
+	save week7, replace 
+	
+	sts graph, ///
+		by(huq010) ///
+			fail ///
+			per(100) ///
+			ylab(0(20)80 , ///
+				format(%2.0f) ///
+			) ///
+			xlab(0(5)20) ///
+			tmax(20) ///
+			ti(&quot;Self-Reported Health and Mortality&quot;) ///
+			legend( ///
+				order(5 4 3 2 1) ///
+				lab(1 &quot;$legend1&quot;) ///
+				lab(2 &quot;$legend2&quot;) ///
+				lab(3 &quot;$legend3&quot;) ///
+				lab(4 &quot;$legend4&quot;) ///
+				lab(5 &quot;$legend5&quot;) ///
+				ring(0) pos(11) ///
+			)
+		
+
+	graph export nonpara.png, replace 
+
+} //end 1
+
+
+if 2 { // 7.2 Semi-Parametric KM Curve
+	/* -- earlier code --*/
+	stcox i.huq010, basesurv(s0)
+	matrix define mat = r(table)
+	matrix list mat 
+	matrix mat = mat'
+	svmat mat
+	
+	preserve 
+	keep mat*
+	drop if missing(mat1)
+	rename (mat1 mat2 mat3 mat4 mat5 mat6 mat7 mat8 mat9)(b se z p ll ul df crit eform)
+	g x=_n
+	replace b=log(b)
+	replace ll=log(ll)
+	replace ul=log(ul)
+	
+	twoway (scatter b x) || ///
+		   (rcap ll ul x, ///
+			   yline(0, lcol(lime)) ///
+			   ylab( ///
+				   -2.08 &quot;0.125&quot; ///
+				   -1.39 &quot;0.25&quot; ///
+				   -.69 &quot;0.5&quot; ///
+					 0 &quot;1&quot;  ///
+				   .69 &quot;2&quot; ///
+				   1.39 &quot;4&quot; ///
+				   2.08 &quot;8&quot; ///
+				   2.78 &quot;16&quot;) ///
+			   legend(off)  ///
+			xlab( ///
+			   1 &quot;$legend1&quot; ///
+			   2 &quot;$legend2&quot; ///
+			   3 &quot;$legend3&quot; ///
+			   4 &quot;$legend4&quot; ///
+			   5 &quot;$legend5&quot;) ///
+		   xti(&quot;Self-Reported Health&quot;) ///
+			   ) 
+	graph export semipara_unadj.png, replace 
+	graph save semipara_unadj.gph, replace 
+	restore 
+
+} //end 2
+</code></pre>
+<p>} // end all</p>
