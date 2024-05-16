@@ -1,24 +1,17 @@
-<p>// Stata II HW 7 // Tenzin Lhaksampa</p>
-<p>// Clear previous data qui {</p>
-<pre><code>if 0 { //method, log
-	// Clear Previous data
-	clear
-	cls
-	
-	
-	// methods
-	if c(os)==&quot;Windows&quot; { 
-		global workdir &quot;`c(pwd)'\&quot;
-	}
-	else {
-		global workdir &quot;`c(pwd)'/&quot;
-	}
+# Stata Programming II Project
 
-	// Create log file in working directory 
-	log using ${workdir}hw7.lhaksampa.tenzin.log, replace
-} //end 0
+**Survival Analysis of Self-Reported Health: Non-parametric and Semi-parametric Kaplan-Meier (KM) Curves**
 
-if 1 { // 7.2 Non-Parametric KM Curve
+Tenzin Lhaksampa
+
+May 16, 2024 
+
+## Objective: To provide suvival analysis of self-reported health.
+
+## HW 7
+### Non-Parametric KM Curve
+	
+```
 	cls 
 	
 	//7.1. data
@@ -76,10 +69,13 @@ if 1 { // 7.2 Non-Parametric KM Curve
 
 	graph export nonpara.png, replace 
 
-} //end 1
+'''
 
+![](nonpara.png)
 
-if 2 { // 7.2 Semi-Parametric KM Curve
+### Semi-Parametric KM Curve
+
+```
 	/* -- earlier code --*/
 	stcox i.huq010, basesurv(s0)
 	matrix define mat = r(table)
@@ -120,6 +116,9 @@ if 2 { // 7.2 Semi-Parametric KM Curve
 	graph export semipara_unadj.png, replace 
 	graph save semipara_unadj.gph, replace 
 	restore 
+'''
+![](semipara_unadj.png)
+
 
 } //end 2
 </code></pre>
