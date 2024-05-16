@@ -6,7 +6,7 @@ Tenzin Lhaksampa
 
 Originally published: May 8, 2024
 
-Updated: May 15, 2024
+Updated: May 16, 2024
 
 ## Objective: 
 1. Create a Public GitHub Repository:
