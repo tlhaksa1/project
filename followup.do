@@ -33,11 +33,8 @@ To download and save the public-use LMFs to your hard drive, follow these steps:
 		 and the data file is saved as "<SURVEY>_MORT_2019_PUBLIC.DAT". 
 */
 
-di "What is your working directory?" _request(workdir)
-cd "$workdir"
-
 //cd "C:\PUBLIC USE DATA"    // SET DIRECTORY WHERE DATA ARE LOCATED, E.G. "C:\PUBLIC USE DATA"
-global SURVEY "https://ftp.cdc.gov/pub/HEALTH_STATISTICS/NCHS/datalinkage/linked_mortality/NHANES_1999_2000_MORT_2019_PUBLIC.dat" // REPLACED <SURVEY> WITH RELEVANT SURVEY NAME (IN ALL CAPS)
+global SURVEY NHANES_1999_2000 // REPLACE <SURVEY> WITH RELEVANT SURVEY NAME (IN ALL CAPS)
 * example syntax: 
 * global SURVEY NHIS_2018
 * or
