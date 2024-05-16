@@ -41,7 +41,7 @@ Updated: May 16, 2024
 
   ```
   //use your own username/project repo instead of the class repo below
-  global repo "https://github.com/tlhaksa1/project/raw/main/"
+  global repo "https://raw.githubusercontent.com/tlhaksa1/project/main/"
   cls
   do ${repo}followup.do
   save followup, replace 
