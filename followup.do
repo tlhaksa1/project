@@ -33,7 +33,7 @@ To download and save the public-use LMFs to your hard drive, follow these steps:
 		 and the data file is saved as "<SURVEY>_MORT_2019_PUBLIC.DAT". 
 */
 
-cd $workdir // SET DIRECTORY WHERE DATA ARE LOCATED, E.G. "C:\PUBLIC USE DATA"
+cd "\\win.ad.jhu.edu\Users$\HOME\WINDOWS\uvdi\Desktop\Stata_II\HW\project" // SET DIRECTORY WHERE DATA ARE LOCATED, E.G. "C:\PUBLIC USE DATA"
 global SURVEY NHANES_1999_2000 // REPLACE <SURVEY> WITH RELEVANT SURVEY NAME (IN ALL CAPS)
 * example syntax: 
 * global SURVEY NHIS_2018
