@@ -127,7 +127,7 @@ hist ridageyr
 graph export nonpara.png, replace 
 //replace ridageyr=ridageyr/10
 capture drop s0 
-stcox i.huq010 ridageyr riagendr diabetes hyperten, basesurv(s0)
+stcox i.huq010 ridageyr riagendr, basesurv(s0)
 return list
 matrix define mat_adj=r(table)
 matrix define mat_adj=mat_adj'
@@ -178,11 +178,11 @@ graph export unadj_adj.png, replace
 
 ![](unadj_adj.png)
 	
-## 5. Extracting Parameters
+## 5. Extracting Parameters (adjusted for age, gender, diabetes, and hypertension)
 cls 
 use week7, clear
 replace riagendr=riagendr-1
-stcox i.huq010 ridageyr riagendr, basesurv(s0)
+stcox i.huq010 ridageyr riagendr diabetes hyperten, basesurv(s0)
 keep s0 _t _t0 _st _d 
 save s0, replace 
 ereturn list 
