@@ -4,7 +4,8 @@
 
 Tenzin Lhaksampa
 
-May 8, 2024
+Originally published: May 8, 2024
+Updated: May 15, 2024
 
 ## Objective: 
 1. Create a Public GitHub Repository:
@@ -85,3 +86,4 @@ codebook huq010
 >
 
 ## HW 7 
+Click [here](dyndoc.html) to view nonparametric and semiparametric risk estimates from Stata
