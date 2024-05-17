@@ -80,6 +80,7 @@ if 1 { // 7.2 Non-Parametric KM Curve
 
 } //end 1
 
+![](nonpara.png)
 
 if 2 { // 7.2 Semi-Parametric KM Curve
 	/* -- earlier code --*/
@@ -125,6 +126,7 @@ if 2 { // 7.2 Semi-Parametric KM Curve
 
 } //end 2
 
+![](semipara_unadj.png)
 
 if 3 { //7.2 Inference
 	hist ridageyr 
@@ -170,6 +172,8 @@ if 3 { //7.2 Inference
 	graph save semipara_adj.gph, replace 
 } //end 3
 
+![](semipara_adj.png)
+
 if 4 { //7.3 Updates
 	
 	// Adjusted semi-parametric km curve
@@ -178,6 +182,8 @@ if 4 { //7.3 Updates
 	graph export unadj_adj.png, replace 
 	
 } //end 4
+
+![](unadj_adj.png)
 
 if 5 { //7.5 Extracting Parameters
 	cls 
@@ -246,6 +252,8 @@ if 5 { //7.5 Extracting Parameters
 					  ,size(1.5) ///
 	)
 graph export scenario.png, replace 
+
+![](scenario.png)
 
 } //end 5
 //save output as html file using dyndoc dyndoc hw7.lhaksampa.tenzin.do, saving(dyndoc.html) replace
